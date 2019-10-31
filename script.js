@@ -12,6 +12,8 @@ passwordLength = parseInt(passwordLength);
 
 console.log(passwordLength);
 
+var password = "";
+
 // I'm then going to have four true/false questions for whether the user wants to include special characters, numberic characters, lowercase characters or upper case characters. these questions will resolve to variables
 
 var specialCharacters = confirm("Would you like to include special characters?");
@@ -87,7 +89,9 @@ function createPassword() {
 
    console.log(randomCharacterSelector);
 
-   
+   for (var i = 0; i < passwordLength; i++) {
+      password += randomCharacterSelector[Math.floor(Math.random()*randomCharacterSelector.length)];
+   }
 }
 
 
@@ -103,3 +107,5 @@ console.log(lowercaseCharacters);
 console.log(uppercaseCharacters);
 
 createPassword();
+
+console.log(password);
