@@ -19,9 +19,19 @@ var numericCharacters = confirm("Would you like to include numerals?");
 var lowercaseCharacters = confirm("Would you like to include lowercase characters?");
 var uppercaseCharacters = confirm("Would you like to include lowercase characters?");
 
+// creating variables to hold arrays to use in the password
+
+var specialPasswordCharacters = " !\"#$%&'()*+,-./;:<=>?@[]\\^_`{}|~";
+var numbericPasswordCharacters = "1234567890";
+var lowercasePasswordCharacters = "abcdefghijklmnopqrstuvwxyz";
+var uppercasePasswordCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// this is where I'm going to store the combination of variables into a single array to be used in the generater function
+var randomCharacterSelector = "";
+
 // DEFINE FUNCTIONS IN THE MIDDLE
 
-// this function triggers the questions. i created this a function so that if the user gives false responses for all the queries, I can run an alert that says 'not falid' then dish this funtion again
+// this function triggers the questions. i created this a function so that if the user gives false responses for all the queries, I can run an alert that says 'not valid' then dish this funtion again
 
 function gatherResponses() {
    specialCharacters = confirm("Would you like to include special characters?");
@@ -43,6 +53,8 @@ function confirmSelection() {
 };
 
 
+
+
 // write a function to give the password. it's going to have to be some if/then statements. those statements something is going to have to determine that we are including ... if i have 4 options that they can say yes/no to, that means I need some 
 
 
@@ -50,6 +62,33 @@ function confirmSelection() {
 
 // going to take the responses, and based on if it's true or false, i can use a function to add characters to an array. so, if someone says yes to specialCharacters, I want to generate an array with all of the special characters. if someone says yes to numberic characters, we create an function that gives us all the numeric, if yes to lowercase, we get a function that creates an array of all the lowercase characters, and same thing for uppercase. those arrays will be assigned to a variable. then we'll create a new variable (function?) that combines all of the arrays.... then we can create a for loop that cycles to the value of passwordLength, and each time it gives out a random character from our array. that loop stops afer running the passwordLength's amount.
 
+function createPassword() {
+   if (specialCharacters === true) {
+      specialPasswordCharacters = specialPasswordCharacters.split(",");
+      randomCharacterSelector += specialPasswordCharacters;
+   };
+
+   if (numericCharacters === true) {
+      numbericPasswordCharacters = numbericPasswordCharacters.split(",");
+      randomCharacterSelector += numbericPasswordCharacters;
+   }
+
+   if (lowercaseCharacters === true) {
+      lowercasePasswordCharacters = lowercasePasswordCharacters.split(",");
+      randomCharacterSelector += lowercasePasswordCharacters;
+   } 
+
+   if (uppercaseCharacters === true) {
+      uppercasePasswordCharacters = uppercasePasswordCharacters.split(",");
+      randomCharacterSelector += uppercasePasswordCharacters;
+   }
+
+   randomCharacterSelector = randomCharacterSelector.split("");
+
+   console.log(randomCharacterSelector);
+
+   
+}
 
 
 
@@ -62,3 +101,5 @@ console.log(specialCharacters);
 console.log(numericCharacters);
 console.log(lowercaseCharacters);
 console.log(uppercaseCharacters);
+
+createPassword();
