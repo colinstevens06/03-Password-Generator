@@ -24,10 +24,10 @@ var uppercaseCharacters = confirm("Would you like to include lowercase character
 // this function triggers the questions. i created this a function so that if the user gives false responses for all the queries, I can run an alert that says 'not falid' then dish this funtion again
 
 function gatherResponses() {
-   var specialCharacters = confirm("Would you like to include special characters?");
-   var numericCharacters = confirm("Would you like to include numerals?");
-   var lowercaseCharacters = confirm("Would you like to include lowercase characters?");
-   var uppercaseCharacters = confirm("Would you like to include lowercase characters?");
+   specialCharacters = confirm("Would you like to include special characters?");
+   numericCharacters = confirm("Would you like to include numerals?");
+   lowercaseCharacters = confirm("Would you like to include lowercase characters?");
+   uppercaseCharacters = confirm("Would you like to include lowercase characters?");
 
 };
 
