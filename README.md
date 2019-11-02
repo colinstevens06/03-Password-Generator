@@ -29,6 +29,6 @@ Once I got the HTML file setup w/ the right IDs (I used the starter file provide
 I know this could be better from a UI standpoint. Hoping to have more time Sunday to really make this sing, but I'm pretty happy that I could generate a random password and have it display on the screen.
 
 ## Screenshots
-![Before running the script](./assets/images/random-password-generator-blank.png)
+![Before running the script](/assets/images/Random-Password-Generator-Blank.png)
 
-![After running the script](/assets/images/random-password-100-characters.png)
+![After running the script](/assets/images/Random-Password-100-Characters.png)
