@@ -1,5 +1,5 @@
 # 03-Password-Generator
-[Password generator using javascript] (https://colinstevens06.github.io/03-Password-Generator/)
+[Password generator using javascript](https://colinstevens06.github.io/03-Password-Generator/)
 
 This was the most challenging lesson so far (duh, right?). I honestly wasn't sure if I was going to be able to do it, but I had a dedicated night to kickoff this assignment and I made serious progress in just a few hours.
 
