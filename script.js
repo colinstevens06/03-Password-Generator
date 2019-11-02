@@ -31,7 +31,28 @@ var uppercasePasswordCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // this is where I'm going to store the combination of variables into a single array to be used in the generater function
 var randomCharacterSelector = "";
 
-// DEFINE FUNCTIONS IN THE MIDDLE
+// ****** HTML AND CSS **********
+
+// defining elements and shortcuts to elements
+var body = document.body;
+
+var containerElement = document.createElement("div");
+var h1Element = document.createElement("h1");
+var box = document.createElement("div");
+
+// Storing values into the elements
+
+h1Element.textContent = "Create a randomly generated password!";
+
+// Adding elements to pages
+
+body.appendChild(containerElement);
+
+// Styling elements
+
+
+
+// ********* DEFINE FUNCTIONS IN THE MIDDLE ***********
 
 // this function triggers the questions. i created this a function so that if the user gives false responses for all the queries, I can run an alert that says 'not valid' then dish this funtion again
 
@@ -93,6 +114,8 @@ function createPassword() {
       password += randomCharacterSelector[Math.floor(Math.random()*randomCharacterSelector.length)];
    }
 }
+
+
 
 
 
