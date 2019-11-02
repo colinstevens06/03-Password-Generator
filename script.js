@@ -1,11 +1,8 @@
-//creating code that generates a random password
+// //creating code that generates a random password
 
+// // DEFINE VARIABLES UP TOP
 
-
-
-// DEFINE VARIABLES UP TOP
-
-//i want to write a pop-up question box here that captures the user's answer and assigns it to the passwordLength variable. must be between 8 and 128 character. could be cool to have a loop for this somehow where if the user doens't give an answer between 8 and 128, we ask the question again 'try again' .... maybe that's achieved with an if/else?
+// //i want to write a pop-up question box here that captures the user's answer and assigns it to the passwordLength variable. must be between 8 and 128 character. could be cool to have a loop for this somehow where if the user doens't give an answer between 8 and 128, we ask the question again 'try again' .... maybe that's achieved with an if/else?
 
 var passwordLength = prompt("How many characters would you like your password to be (must be between 8 and 128?");
 passwordLength = parseInt(passwordLength);
@@ -14,42 +11,49 @@ console.log(passwordLength);
 
 var password = "";
 
-// I'm then going to have four true/false questions for whether the user wants to include special characters, numberic characters, lowercase characters or upper case characters. these questions will resolve to variables
+// // I'm then going to have four true/false questions for whether the user wants to include special characters, numberic characters, lowercase characters or upper case characters. these questions will resolve to variables
 
 var specialCharacters = confirm("Would you like to include special characters?");
 var numericCharacters = confirm("Would you like to include numerals?");
 var lowercaseCharacters = confirm("Would you like to include lowercase characters?");
-var uppercaseCharacters = confirm("Would you like to include lowercase characters?");
+var uppercaseCharacters = confirm("Would you like to include UPPERCASE characters?");
 
-// creating variables to hold arrays to use in the password
+// // creating variables to hold arrays to use in the password
 
 var specialPasswordCharacters = " !\"#$%&'()*+,-./;:<=>?@[]\\^_`{}|~";
 var numbericPasswordCharacters = "1234567890";
 var lowercasePasswordCharacters = "abcdefghijklmnopqrstuvwxyz";
 var uppercasePasswordCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// this is where I'm going to store the combination of variables into a single array to be used in the generater function
+// // this is where I'm going to store the combination of variables into a single array to be used in the generater function
 var randomCharacterSelector = "";
 
-// ****** HTML AND CSS **********
+// // ****** HTML AND CSS **********
 
-// defining elements and shortcuts to elements
+// // defining elements and shortcuts to elements
 var body = document.body;
 
-var containerElement = document.createElement("div");
-var h1Element = document.createElement("h1");
-var box = document.createElement("div");
+var h1Element = document.querySelector("h1");
+var boxElement = document.getElementById("box");
+var passwordTextArea = document.getElementById("password");
+var generateBtn = document.getElementById("generate");
+
 
 // Storing values into the elements
 
-h1Element.textContent = "Create a randomly generated password!";
 
 // Adding elements to pages
 
-body.appendChild(containerElement);
+// body.appendChild(containerElement);
 
 // Styling elements
 
+h1Element.setAttribute("style", "text-align: center;");
+h1Element.className += "mt-5";
+body.className += "container";
+boxElement.className += "border rounded shadow-sm m-5 p-4";
+passwordTextArea.setAttribute("style", "border: dashed; width: 100%; padding: 15px; text-align: center;");
+generateBtn.className += "bg-danger text-white rounded";
 
 
 // ********* DEFINE FUNCTIONS IN THE MIDDLE ***********
@@ -66,7 +70,7 @@ function gatherResponses() {
 
 
 
-// i'll need a function of some sort here to verify that the user selected at least one character type
+// // i'll need a function of some sort here to verify that the user selected at least one character type
 
 function confirmSelection() {
    if (specialCharacters === false && numericCharacters === false && lowercaseCharacters === false && uppercaseCharacters === false) {
@@ -78,12 +82,12 @@ function confirmSelection() {
 
 
 
-// write a function to give the password. it's going to have to be some if/then statements. those statements something is going to have to determine that we are including ... if i have 4 options that they can say yes/no to, that means I need some 
+// // write a function to give the password. it's going to have to be some if/then statements. those statements something is going to have to determine that we are including ... if i have 4 options that they can say yes/no to, that means I need some 
 
 
-// different options a user could choose: 1(sC, nC, lC, uC); 2(sC, nC, lC); 3(sC, nC, uC); 4(sC, lC, uC); 5(sC, nC); 6(sC, lC); 7(sC, uC); 8(sC); 9(nC, lC, uC); 10(nC, lC); 11(nC, uC); 12(nC); 13(lc, uC); 14(lC); 15(uC);
+// // different options a user could choose: 1(sC, nC, lC, uC); 2(sC, nC, lC); 3(sC, nC, uC); 4(sC, lC, uC); 5(sC, nC); 6(sC, lC); 7(sC, uC); 8(sC); 9(nC, lC, uC); 10(nC, lC); 11(nC, uC); 12(nC); 13(lc, uC); 14(lC); 15(uC);
 
-// going to take the responses, and based on if it's true or false, i can use a function to add characters to an array. so, if someone says yes to specialCharacters, I want to generate an array with all of the special characters. if someone says yes to numberic characters, we create an function that gives us all the numeric, if yes to lowercase, we get a function that creates an array of all the lowercase characters, and same thing for uppercase. those arrays will be assigned to a variable. then we'll create a new variable (function?) that combines all of the arrays.... then we can create a for loop that cycles to the value of passwordLength, and each time it gives out a random character from our array. that loop stops afer running the passwordLength's amount.
+// // going to take the responses, and based on if it's true or false, i can use a function to add characters to an array. so, if someone says yes to specialCharacters, I want to generate an array with all of the special characters. if someone says yes to numberic characters, we create an function that gives us all the numeric, if yes to lowercase, we get a function that creates an array of all the lowercase characters, and same thing for uppercase. those arrays will be assigned to a variable. then we'll create a new variable (function?) that combines all of the arrays.... then we can create a for loop that cycles to the value of passwordLength, and each time it gives out a random character from our array. that loop stops afer running the passwordLength's amount.
 
 function createPassword() {
    if (specialCharacters === true) {
@@ -116,11 +120,18 @@ function createPassword() {
 }
 
 
+// adding event listener here
+
+generateBtn.addEventListener("click", function() {
+
+
+   
+   passwordTextArea.textContent = password;
+});
 
 
 
-
-// RUN FUNCTIONS AT THE END
+// // RUN FUNCTIONS AT THE END
 
 confirmSelection();
 
