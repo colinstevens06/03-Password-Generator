@@ -11,6 +11,8 @@ console.log(passwordLength);
 
 var password = "";
 
+var password = "PASSWORD";
+
 // // I'm then going to have four true/false questions for whether the user wants to include special characters, numberic characters, lowercase characters or upper case characters. these questions will resolve to variables
 
 var specialCharacters = confirm("Would you like to include special characters?");
